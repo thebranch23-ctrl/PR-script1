@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Moving Script - Clear & Direct</title>
+    <title>Professional Moving Script</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,18 +12,18 @@
             max-width: 650px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #f5f7fa;
+            background-color: #fcf9f2; /* Warm summer sand background */
         }
         .script-container {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #dcdde1;
+            box-shadow: 0 4px 15px rgba(212, 143, 56, 0.1); /* Subtle warm amber glow */
+            border: 1px solid #eedecc;
         }
         h1 {
-            color: #1e272e;
-            border-bottom: 2px solid #2f3542;
+            color: #1a365d; /* Deep July sky navy */
+            border-bottom: 3px solid #e28743; /* Summer amber accent line */
             padding-bottom: 10px;
             margin-top: 0;
             font-size: 1.5em;
@@ -34,15 +34,15 @@
             font-size: 0.85em;
             letter-spacing: 0.5px;
         }
-        .prospect { color: #d63031; }
-        .you { color: #2f3542; }
+        .prospect { color: #c0392b; }
+        .you { color: #1a365d; }
         .line {
             margin-bottom: 20px;
         }
         .action {
             font-style: italic;
-            color: #57606f;
-            background-color: #f1f2f6;
+            color: #68707c;
+            background-color: #f4f1ea; /* Sun-washed slate */
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 0.85em;
@@ -50,7 +50,7 @@
             margin-top: 5px;
         }
         .highlight {
-            background-color: #f1f2f6;
+            background-color: #f7e7d4; /* Soft sunset tint */
             padding: 2px 4px;
             border-radius: 3px;
             font-weight: bold;
@@ -58,15 +58,56 @@
         hr {
             border: 0;
             height: 1px;
-            background: #ced6e0;
+            background: #ebdccb;
             margin: 25px 0;
+        }
+        /* Rebuttal Button Styles */
+        .rebuttal-btn {
+            background-color: #e28743; /* Bright summer amber */
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            transition: background 0.2s ease;
+        }
+        .rebuttal-btn:hover {
+            background-color: #cd6e29;
+        }
+        /* Rebuttal Box Styles */
+        .rebuttal-box {
+            display: none;
+            background-color: #fffaf0;
+            border-left: 4px solid #e28743;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95em;
+        }
+        .rebuttal-box h3 {
+            margin-top: 0;
+            color: #cd6e29;
+            font-size: 1.05em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rebuttal-box ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+        .rebuttal-box li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
 <div class="script-container">
-    <h1>B2B Moving Industry Script (Clear Delivery)</h1>
+    <h1>B2B Moving Industry Script</h1>
     
     <!-- Step 1: Introduction -->
     <div class="line">
@@ -120,6 +161,24 @@
         When we combine regular posts with consistent reviews, your business ranks higher on Google. This naturally brings more direct jobs to your business. <br><br>
         Do you have any questions about how this works? <br>
         <span class="action"> Answer any quick question, then move immediately to the close </span>
+        
+        <!-- Rebuttal Trigger Button -->
+        <button class="rebuttal-btn" onclick="toggleRebuttal()">Rebuttal: "How much does it cost?"</button>
+        
+        <!-- Dynamic Rebuttal Box -->
+        <div id="costRebuttal" class="rebuttal-box">
+            <h3>Rebuttal for "How much does it cost?"</h3>
+            <p>That's a great question. The exact cost depends on your moving company's size, goals, and the services that make the most sense for your business. Because every company is different, we customize our plans instead of offering a one-size-fits-all package.</p>
+            <p>For example, some moving companies prefer a performance-based model, while others choose a simple monthly retainer.</p>
+            <p>What I'd like to do is have one of our Account Managers take a deeper look at your business and put together the best option for you. They can also provide exact pricing and answer any questions you have.</p>
+            <p><strong>What day and time would be best for them to give you a call?</strong></p>
+            <p>Our typical entry package starts at <strong>$350/month</strong> and includes:</p>
+            <ul>
+                <li><strong>Affiliate platform setup and management</strong>, helping generate inbound moving job requests that you can accept, decline, or reschedule.</li>
+                <li><strong>Google Business Profile optimization</strong>, including 3–4 posts per week to improve your visibility in local search results.</li>
+                <li><strong>An automated review and referral system</strong> designed to help generate Google reviews from up to 95% of your completed customers, while also encouraging referrals.</li>
+            </ul>
+        </div>
     </div>
 
     <hr>
@@ -130,6 +189,17 @@
         Would tomorrow or Thursday work better for a short call?
     </div>
 </div>
+
+<script>
+function toggleRebuttal() {
+    var x = document.getElementById("costRebuttal");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>
 
 </body>
 </html>
