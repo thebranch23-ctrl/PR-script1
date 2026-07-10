@@ -3,16 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Moving Script</title>
+    <title>Professional Moving Script & Workspace</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.5;
             color: #2c3e50;
-            max-width: 650px;
+            max-width: 1100px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fcf9f2; /* Warm summer sand background */
+            display: flex;
+            gap: 20px;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .sidebar {
+            width: 320px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(212, 143, 56, 0.1);
+            border: 1px solid #eedecc;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        /* Variables Input Panel */
+        .variables-panel {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(212, 143, 56, 0.1);
+            border: 1px solid #eedecc;
+            margin-bottom: 20px;
+        }
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 11fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group label {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .input-group input {
+            padding: 8px 12px;
+            border: 1px solid #ebdccb;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: #2c3e50;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #e28743;
+            background-color: #fffaf5;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .tab-btn {
+            background-color: #ebdccb;
+            color: #2c3e50;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .tab-btn.active {
+            background-color: #e28743; /* Bright summer amber */
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
         }
         .script-container {
             background-color: #ffffff;
@@ -27,6 +106,13 @@
             padding-bottom: 10px;
             margin-top: 0;
             font-size: 1.5em;
+        }
+        h2 {
+            color: #1a365d;
+            font-size: 1.2em;
+            margin-top: 0;
+            border-bottom: 2px solid #ebdccb;
+            padding-bottom: 5px;
         }
         .role {
             font-weight: bold;
@@ -63,7 +149,7 @@
         }
         /* Rebuttal Button Styles */
         .rebuttal-btn {
-            background-color: #e28743; /* Bright summer amber */
+            background-color: #e28743; 
             color: white;
             border: none;
             padding: 8px 14px;
@@ -102,95 +188,266 @@
         .rebuttal-box li {
             margin-bottom: 8px;
         }
+        /* VM Container Styles */
+        .vm-box {
+            background-color: #fffaf0;
+            border-left: 4px solid #1a365d;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+            border: 1px solid #eedecc;
+            border-left: 4px solid #e28743;
+        }
+        .vm-box h3 {
+            margin-top: 0;
+            color: #1a365d;
+            font-size: 1.1em;
+        }
+        /* Notes Section Styles */
+        .notes-area {
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ebdccb;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .download-btn {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .download-btn:hover {
+            background-color: #11243f;
+        }
     </style>
 </head>
 <body>
 
-<div class="script-container">
-    <h1>B2B Moving Industry Script</h1>
-    
-    <!-- Step 1: Introduction -->
-    <div class="line">
-        <span class="role prospect">Prospect:</span> Hello?
-    </div>
-    
-    <div class="line">
-        <span class="role you">You:</span> Hello, am I speaking with the owner of <span class="highlight">{Business Name}</span>?
-    </div>
-    
-    <div class="line">
-        <span class="role prospect">Owner:</span> Yes, this is the owner.
-    </div>
-    
-    <div class="line">
-        <span class="role you">You:</span> My name is <strong>[Your Name]</strong> with P&R Acquisition Group. How are you today? <br>
-        <span class="action"> Pause for response </span>
-    </div>
-
-    <div class="line">
-        <span class="role you">You:</span> I am calling because we help local moving companies get more jobs without using Google Ads or relying only on word-of-mouth. <br><br>
-        Are you available to take on more jobs right now, or is your schedule completely full? <br>
-        <span class="action"> Pause for response </span>
-    </div>
-
-    <!-- Step 2: Qualification -->
-    <div class="line">
-        <span class="role you">You:</span> I understand. We currently work with four moving companies in <span class="highlight">{Their State}</span>. Our only focus is helping moving businesses get more booked jobs. <br><br>
-        How do you currently get most of your moving jobs? <br>
-        <span class="action"> Pause for response </span>
-    </div>
-
-    <hr>
-
-    <!-- Step 3: The Value Proposition -->
-    <div class="line">
-        <span class="role you">You:</span> Thank you for sharing that. The first step we take to increase your jobs is listing your business on our affiliate platforms. We send you job requests, and you can accept, decline, or reschedule them based on your availability. <br><br>
-        Are you currently active on your Google Business Profile? <br>
-        <span class="action"> Pause for response </span>
-    </div>
-
-    <div class="line">
-        <span class="role you">You:</span> We manage that profile for you. We post updates four times per week and automate your customer reviews. <br><br>
-        How do you collect reviews from your clients right now? <br>
-        <span class="action"> Pause for response </span>
-    </div>
-
-    <!-- Step 4: The Core Benefit -->
-    <div class="line">
-        <span class="role you">You:</span> Our system makes review collection fully automatic. Typically, ninety-five percent of clients leave a review on your Google profile. <br><br>
-        When we combine regular posts with consistent reviews, your business ranks higher on Google. This naturally brings more direct jobs to your business. <br><br>
-        Do you have any questions about how this works? <br>
-        <span class="action"> Answer any quick question, then move immediately to the close </span>
-        
-        <!-- Rebuttal Trigger Button -->
-        <button class="rebuttal-btn" onclick="toggleRebuttal()">Rebuttal: "How much does it cost?"</button>
-        
-        <!-- Dynamic Rebuttal Box -->
-        <div id="costRebuttal" class="rebuttal-box">
-            <h3>Rebuttal for "How much does it cost?"</h3>
-            <p>That's a great question. The exact cost depends on your moving company's size, goals, and the services that make the most sense for your business. Because every company is different, we customize our plans instead of offering a one-size-fits-all package.</p>
-            <p>For example, some moving companies prefer a performance-based model, while others choose a simple monthly retainer.</p>
-            <p>What I'd like to do is have one of our Account Managers take a deeper look at your business and put together the best option for you. They can also provide exact pricing and answer any questions you have.</p>
-            <p><strong>What day and time would be best for them to give you a call?</strong></p>
-            <p>Our typical entry package starts at <strong>$350/month</strong> and includes:</p>
-            <ul>
-                <li><strong>Affiliate platform setup and management</strong>, helping generate inbound moving job requests that you can accept, decline, or reschedule.</li>
-                <li><strong>Google Business Profile optimization</strong>, including 3–4 posts per week to improve your visibility in local search results.</li>
-                <li><strong>An automated review and referral system</strong> designed to help generate Google reviews from up to 95% of your completed customers, while also encouraging referrals.</li>
-            </ul>
+<div class="main-content">
+    <!-- Live Variable Inputs -->
+    <div class="variables-panel">
+        <h2>Prospect & Caller Info</h2>
+        <div class="variables-grid">
+            <div class="input-group">
+                <label for="input-your-name">Your Name</label>
+                <input type="text" id="input-your-name" placeholder="John" oninput="updateScriptVariables()">
+            </div>
+            <div class="input-group">
+                <label for="input-biz-name">Business Name</label>
+                <input type="text" id="input-biz-name" placeholder="Apex Moving" oninput="updateScriptVariables()">
+            </div>
+            <div class="input-group">
+                <label for="input-state">Their State</label>
+                <input type="text" id="input-state" placeholder="Texas" oninput="updateScriptVariables()">
+            </div>
         </div>
     </div>
 
-    <hr>
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('script-tab')">Cold Call Script</button>
+        <button class="tab-btn" onclick="switchTab('vm-tab')">VM Messages</button>
+    </div>
 
-    <!-- Step 5: The Close -->
-    <div class="line">
-        <span class="role you">You:</span> I would like to show you how our Local Starter Plan works and what job volume you can expect in your area. It takes about fifteen minutes. <br><br>
-        Would tomorrow or Thursday work better for a short call?
+    <!-- Script Tab -->
+    <div id="script-tab" class="tab-content active">
+        <div class="script-container">
+            <h1>B2B Moving Industry Script</h1>
+            
+            <div class="line">
+                <span class="role prospect">Prospect:</span> Hello?
+            </div>
+            
+            <div class="line">
+                <span class="role you">You:</span> Hello, am I speaking with the owner of <span class="highlight var-biz-name">{Business Name}</span>?
+            </div>
+            
+            <div class="line">
+                <span class="role prospect">Owner:</span> Yes, this is the owner.
+            </div>
+            
+            <div class="line">
+                <span class="role you">You:</span> My name is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group. How are you today? <br>
+                <span class="action"> Pause for response </span>
+            </div>
+
+            <div class="line">
+                <span class="role you">You:</span> I am calling because we help local moving companies get more jobs without using Google Ads or relying only on word-of-mouth. <br><br>
+                Are you available to take on more jobs right now, or is your schedule completely full? <br>
+                <span class="action"> Pause for response </span>
+            </div>
+
+            <div class="line">
+                <span class="role you">You:</span> I understand. We currently work with four moving companies in <span class="highlight var-state">{Their State}</span>. Our only focus is helping moving businesses get more booked jobs. <br><br>
+                How do you currently get most of your moving jobs? <br>
+                <span class="action"> Pause for response </span>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <span class="role you">You:</span> Thank you for sharing that. The first step we take to increase your jobs is listing your business on our affiliate platforms. We send you job requests, and you can accept, decline, or reschedule them based on your availability. <br><br>
+                Are you currently active on your Google Business Profile? <br>
+                <span class="action"> Pause for response </span>
+            </div>
+
+            <div class="line">
+                <span class="role you">You:</span> We manage that profile for you. We post updates four times per week and automate your customer reviews. <br><br>
+                How do you collect reviews from your clients right now? <br>
+                <span class="action"> Pause for response </span>
+            </div>
+
+            <div class="line">
+                <span class="role you">You:</span> Our system makes review collection fully automatic. Typically, ninety-five percent of clients leave a review on your Google profile. <br><br>
+                When we combine regular posts with consistent reviews, your business ranks higher on Google. This naturally brings more direct jobs to your business. <br><br>
+                Do you have any questions about how this works? <br>
+                <span class="action"> Answer any quick question, then move immediately to the close </span>
+                
+                <button class="rebuttal-btn" onclick="toggleRebuttal()">Rebuttal: "How much does it cost?"</button>
+                
+                <div id="costRebuttal" class="rebuttal-box">
+                    <h3>Rebuttal for "How much does it cost?"</h3>
+                    <p>That's a great question. The exact cost depends on your moving company's size, goals, and the services that make the most sense for your business. Because every company is different, we customize our plans instead of offering a one-size-fits-all package.</p>
+                    <p>For example, some moving companies prefer a performance-based model, while others choose a simple monthly retainer.</p>
+                    <p>What I'd like to do is have one of our Account Managers take a deeper look at your business and put together the best option for you. They can also provide exact pricing and answer any questions you have.</p>
+                    <p><strong>What day and time would be best for them to give you a call?</strong></p>
+                    <p>Our typical entry package starts at <strong>$350/month</strong> and includes:</p>
+                    <ul>
+                        <li><strong>Affiliate platform setup and management</strong>, helping generate inbound moving job requests that you can accept, decline, or reschedule.</li>
+                        <li><strong>Google Business Profile optimization</strong>, including 3–4 posts per week to improve your visibility in local search results.</li>
+                        <li><strong>An automated review and referral system</strong> designed to help generate Google reviews from up to 95% of your completed customers, while also encouraging referrals.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <span class="role you">You:</span> I would like to show you how our Local Starter Plan works and what job volume you can expect in your area. It takes about fifteen minutes. <br><br>
+                Would tomorrow or Thursday work better for a short call?
+            </div>
+        </div>
+    </div>
+
+    <!-- Voicemail Tab -->
+    <div id="vm-tab" class="tab-content">
+        <div class="script-container">
+            <h1>Voicemail Drop Scripts</h1>
+            
+            <!-- VM 1 -->
+            <div class="vm-box">
+                <h3>Voicemail #1 – Simple & Professional</h3>
+                <p>Hi, this message is for the owner of <span class="highlight var-biz-name">{Business Name}</span>.</p>
+                <p>My name is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group. We help moving companies get more booked jobs without relying solely on Google Ads or word-of-mouth referrals.</p>
+                <p>We're currently working with moving companies in your area and thought you might be interested in seeing how we're helping them increase their job volume and online visibility.</p>
+                <p>Please give me a call back at <strong>448-231-7447</strong>. Again, that's <strong>448-231-7447</strong>.</p>
+                <p>I look forward to speaking with you. Thank you.</p>
+            </div>
+
+            <!-- VM 2 -->
+            <div class="vm-box">
+                <h3>Voicemail #2 – Results Focused</h3>
+                <p>Hi, this is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group.</p>
+                <p>I'm reaching out because we help moving companies generate more booked jobs by improving their Google presence, automating customer reviews, and providing access to additional moving leads.</p>
+                <p>I wanted to see if <span class="highlight var-biz-name">{Business Name}</span> is currently looking to take on more jobs.</p>
+                <p>Please give me a call back at <strong>448-231-7447</strong>. That's <strong>448-231-7447</strong>.</p>
+                <p>Again, this is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group. I look forward to connecting with you.</p>
+            </div>
+
+            <!-- VM 3 -->
+            <div class="vm-box">
+                <h3>Voicemail #3 – Curiosity-Based</h3>
+                <p>Hi, this is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group.</p>
+                <p>I had a quick question for the owner of <span class="highlight var-biz-name">{Business Name}</span> regarding how you're currently getting your moving jobs and whether you're looking to increase your bookings.</p>
+                <p>We're helping several moving companies get more consistent job flow and stronger Google rankings.</p>
+                <p>If you'd like to learn more, give me a call at <strong>448-231-7447</strong>. Again, <strong>448-231-7447</strong>.</p>
+                <p>Thank you, and I look forward to speaking with you soon.</p>
+            </div>
+
+            <!-- VM 4 -->
+            <div class="vm-box">
+                <h3>Voicemail #4 – Short & Direct</h3>
+                <p>Hi, this is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group.</p>
+                <p>We help moving companies get more moving jobs and more Google reviews without the headaches of managing everything themselves.</p>
+                <p>I'd love to show you how it works.</p>
+                <p>Please call me back at <strong>448-231-7447</strong>. Again, that's <strong>448-231-7447</strong>.</p>
+                <p>Thank you and have a great day.</p>
+            </div>
+
+            <!-- VM 5 -->
+            <div class="vm-box">
+                <h3>Voicemail #5 – Strong Call to Action</h3>
+                <p>Hi, this is <strong class="var-your-name">[Your Name]</strong> with P&R Acquisition Group.</p>
+                <p>I'm reaching out because we're currently helping moving companies increase their bookings through lead generation, Google Business Profile management, and automated review collection.</p>
+                <p>If you're looking to keep your crews busier and bring in more moving jobs, give me a call at <strong>448-231-7447</strong>.</p>
+                <p>Again, that's <strong>448-231-7447</strong>. I look forward to speaking with you.</p>
+                <p>Have a great day.</p>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- Sticky Notes Sidebar -->
+<div class="sidebar">
+    <h2>Live Call Notes</h2>
+    <textarea id="notesBox" class="notes-area" placeholder="Type prospect details, responses, or follow-up times here..."></textarea>
+    <button class="download-btn" onclick="downloadNotes()">Download Notes</button>
+</div>
+
 <script>
+// Live Script Text Replacer
+function updateScriptVariables() {
+    var yourName = document.getElementById("input-your-name").value.trim() || "[Your Name]";
+    var bizName = document.getElementById("input-biz-name").value.trim() || "{Business Name}";
+    var state = document.getElementById("input-state").value.trim() || "{Their State}";
+
+    // Update all instances of Your Name
+    var nameElements = document.getElementsByClassName("var-your-name");
+    for (var i = 0; i < nameElements.length; i++) {
+        nameElements[i].innerText = yourName;
+    }
+
+    // Update all instances of Business Name
+    var bizElements = document.getElementsByClassName("var-biz-name");
+    for (var i = 0; i < bizElements.length; i++) {
+        bizElements[i].innerText = bizName;
+    }
+
+    // Update all instances of State
+    var stateElements = document.getElementsByClassName("var-state");
+    for (var i = 0; i < stateElements.length; i++) {
+        stateElements[i].innerText = state;
+    }
+}
+
+// Tab Swapping Functionality
+function switchTab(tabId) {
+    var contents = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+    }
+    
+    var buttons = document.getElementsByClassName("tab-btn");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+    
+    document.getElementById(tabId).classList.add("active");
+    event.currentTarget.classList.add("active");
+}
+
+// Rebuttal Toggle
 function toggleRebuttal() {
     var x = document.getElementById("costRebuttal");
     if (x.style.display === "block") {
@@ -199,6 +456,29 @@ function toggleRebuttal() {
         x.style.display = "block";
     }
 }
+
+// Download Notes Functionality
+function downloadNotes() {
+    var notesText = document.getElementById("notesBox").value;
+    if (!notesText.trim()) {
+        alert("Please enter some notes before downloading.");
+        return;
+    }
+    
+    var blob = new Blob([notesText], { type: "text/plain;charset=utf-8" });
+    var link = document.createElement("a");
+    
+    var date = new Date();
+    var timestamp = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + "_" + date.getHours() + "-" + date.getMinutes();
+    
+    link.href = URL.createObjectURL(blob);
+    link.download = "Call_Notes_" + timestamp + ".txt";
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+// Run once on load to ensure defaults are correct
+updateScriptVariables();
 </script>
 
 </body>
